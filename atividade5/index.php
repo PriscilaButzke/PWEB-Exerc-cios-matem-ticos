@@ -1,5 +1,4 @@
-<!--4.  Desenvolva  uma  função  em  PHP  que  calcule  a  fórmula  de  báskara.  O  usuário  deve informar
-os valores de a, b e c. Fórmulas em anexo ou PPT -->
+<!--5. Desenvolva uma página PHP que calcule a média de 3 valores e mostre o resultado. -->
 <!doctype html>
 <html lang="en">
 
@@ -19,59 +18,54 @@ os valores de a, b e c. Fórmulas em anexo ou PPT -->
 </head>
 
 <body>
-    <form action="index.php" method="post" class="form-control form-control-sm">
+<form action="index.php" method="POST">
+
+form action="index.php" method="post" class="form-control form-control-sm">
         <div class="container">
-            <div class="d-flex justify-content-center fs-2">Calculadora:</div>
+            <div class="d-flex justify-content-center fs-2">Calculadora de média:</div>
 
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-lg">A: </span>
                 </div>
-                <input type="number"  name="a" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                <input type="number"  name="n1" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             </div>
 
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-lg">B: </span>
                 </div>
-                <input type="number"  name="b" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                <input type="number"  name="n2" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             </div>
 
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-lg">C: </span>
                 </div>
-                <input type="number"  name="c" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                <input type="number"  name="n3" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             </div>
             <div class="d-flex justify-content-center">
-                <img src="../img/baskara.PNG" alt="formulas">
-            </div>
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-primary m-1" type="submit" name="calc1">Calcular</button>
+                <button class="btn btn-primary m-1" type="submit" name="calcular">Calcular</button>
             </div>
  
         </div>
         <div class="d-flex justify-content-center fs-2">Resultado:</div>
 
+
         <?php
-        if (isset($_POST['calc1'])) {
-            $a = $_POST['a'];
-            $b = $_POST['b'];
-            $c = $_POST['c'];
+        if(isset($_POST['calcular'])){
+            $n1 = $_POST['n1'];
+            $n2 = $_POST['n2'];
+            $n3 = $_POST['n3'];
 
-            $delta = sqrt(pow($b,2) - (4*$a*$c));
-
-           if($delta>0){
-            $x1 = (-$b + $delta)/(2 * $a);
-           $x2 =  (-$b - $delta)/(2 * $a);
-           echo " <p  class='text-center text-primary fs-3'> X1 = $x1 </p>";
-           echo "<p  class='text-center text-primary fs-3'> X2 = $x2 </p>";
-           }else{
-            echo " <p  class='text-center text-primary fs-3'> Delta negativo </p>";
-           } 
+            $media = ($n1 + $n2 + $n3)/3;
+            echo "<p  class='text-center text-primary fs-3'> Média: $media </p>";
         }
         ?>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
